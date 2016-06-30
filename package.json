@@ -1,0 +1,28 @@
+{
+  "name": "ddg",
+  "version": "1.0.0",
+  "description": "Generates data dictionaries from mysql databases",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reinaldorauch/ddg.git"
+  },
+  "keywords": [
+    "data",
+    "dictionary",
+    "mysql",
+    "databases",
+    "generate",
+    "command",
+    "line"
+  ],
+  "author": "Reinaldo A. C. Rauch <reinaldorauch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reinaldorauch/ddg/issues"
+  },
+  "homepage": "https://github.com/reinaldorauch/ddg#readme"
+}
