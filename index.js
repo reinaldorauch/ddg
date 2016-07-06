@@ -4,7 +4,9 @@ const mysql = require('mysql');
 const q = require('q');
 const async = require('async-q');
 
-const connection = mysql.createConnection('mysql://root:amigen@localhost/sysfisio');
+const DATABASE_NAME = 'sysfisio';
+
+const connection = mysql.createConnection(`mysql://root:amigen@localhost/${DATABASE_NAME}`);
 
 function mysqlQuery(sql, ...params) {
   return q.ninvoke(connection, 'query', sql, ...params);
@@ -32,7 +34,7 @@ FROM
         AND t.table_schema = c.table_schema
 WHERE
     t.table_type in('base table', 'view')
-    AND t.table_schema = 'sysfisio'
+    AND t.table_schema = '${DATABASE_NAME}'
 ORDER BY
     t.table_schema,
     t.table_name,
@@ -47,7 +49,7 @@ function groupTables(concat, row) {
   if (tableData) {
     tableData.push(row);
   } else {
-    concat[row.table_name] = [];
+    concat[row.table_name] = [row];
   }
 
   return concat;
